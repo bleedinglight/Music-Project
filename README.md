@@ -1,2 +1,2 @@
 # music-project
-Music magic in Processing.
+*Music magic in Processing.*
