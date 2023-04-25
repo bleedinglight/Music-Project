@@ -21,17 +21,19 @@ class ball {
     
     stroke(colour);
     noFill();
+    pushMatrix();
     translate(position.x, position.y);
     rotateX(theta);
     rotateY(theta);
     sphere(radius);
+    popMatrix();
     
   }
   
   void update() {
     
     theta += rotationSpeed;
-    
+    println(theta);
     
   }
   

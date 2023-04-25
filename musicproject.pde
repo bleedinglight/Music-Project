@@ -70,7 +70,7 @@ void draw()
      ball ball = balls.get(i);
      ball.radius = map(lerpedBuffer, 0, 1, 10, 400);
      ball.colour = color(map(lerpedBuffer, 0, 1, 260, 320), 255, 255);
-     ball.rotationSpeed = map(lerpedBuffer, 0, 1, 0, 0.2);
+     ball.rotationSpeed = map(lerpedBuffer, 0, 1, 0, 0.5);
      
      ball.render();
      ball.update();
