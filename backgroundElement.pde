@@ -9,24 +9,24 @@ class backgroundElement
 
   void Render()
   {
-    colorMode(HSB, 100);
+    colorMode(HSB);
 
-    background(0);
+    //background(0);
 
     int startX = width/2;
     int startY = height/2;
 
     float theta = 0.2f;
 
-    float cGap = 100.0f / 360.0f ;
+    //float cGap = 100.0f / 360.0f ;
 
-    println(cGap);
+    //println(cGap);
 
     strokeWeight(2);
     for (float i = 0; i < 360; i += theta)
     {
 
-      stroke(cGap*i, 100, 100);
+      stroke(i, 360, 360);
       point(startX + sin(radians(i)) * radius, startY + cos(radians(i)) * radius);
     }
   }

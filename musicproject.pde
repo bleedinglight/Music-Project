@@ -16,7 +16,7 @@ playButton test;
 
 ball ball;
 
-background bgObject;
+backGround bgObject = new backGround(20);
 
 ArrayList<ball> balls = new ArrayList<ball>();
 

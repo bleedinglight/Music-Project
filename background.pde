@@ -1,14 +1,13 @@
-class background
+class backGround
 {
   float startSize;
   
-  ArrayList<backgroundElement> circles;
+  ArrayList<backgroundElement> circles = new ArrayList<backgroundElement>();
   
-  background(int startSize)
+  backGround(int startSize)
   {
     this.startSize = startSize;
     
-    circles = new ArrayList<backgroundElement>();
   }
   
   
