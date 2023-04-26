@@ -16,7 +16,7 @@ playButton test;
 
 ball ball;
 
-backGround bgObject = new backGround(20);
+backGround bgObject = new backGround(20, 1, 5, 5);
 
 ArrayList<ball> balls = new ArrayList<ball>();
 
@@ -39,7 +39,7 @@ void setup()
   
   drawBalls(ballAmount);
   
-  bgObject.createCircle();
+  //bgObject.createCircle();
 }
 
 //ball generator
@@ -57,6 +57,8 @@ float lerpedBuffer;
 void draw()
 {
   background(0);
+  
+  bgObject.Render();
   
   fill(100);
   rect(0, height-100, width, 100);
@@ -81,8 +83,6 @@ void draw()
   }
   
   test.render();
-  
-  bgObject.Render();
 }
 
 void mousePressed()
