@@ -34,14 +34,15 @@ class backgroundElement
 
     //println(cGap);
     
-    float distanceS = map(radius, furthestRad, width/2.5, 50, 360);
-    float distanceB = map(radius, furthestRad, width/2.5, 10, 360);
+    //float distanceS = map(radius, furthestRad, width/2.5, 50, 360);
+    float distanceB = map(radius, furthestRad, width/2.5, 100, 360);
+    float currentWidth = map(radius, furthestRad, width/2.5, 1, circleWidth);
 
-    strokeWeight(circleWidth);
+    strokeWeight(currentWidth);
     for (float i = 0; i < 360; i += theta)
     {
 
-      stroke(i, distanceS, distanceB);
+      stroke(i, 360, distanceB);
       point(sin(radians(i)) * radius, cos(radians(i)) * radius);
     }
     

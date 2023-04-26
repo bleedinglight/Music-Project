@@ -22,6 +22,14 @@ class backGround
   
   void createCircle()
   {
+    
+    
+    backgroundElement circleObject = new backgroundElement(startSize, circleWeight, targetWidth, map(lerpedBuffer, 0, 1, 2*-PI, 2*PI));
+    circles.add(circleObject);
+  }
+  
+  void Render()
+  {
     float total = 0;
   for (int i = 0; i < ab.size(); i++) {
      total += abs(ab.get(i));
@@ -29,12 +37,7 @@ class backGround
   
   lerpedBuffer = lerp(lerpedBuffer, total / (float) ab.size(), 0.1f);
     
-    backgroundElement circleObject = new backgroundElement(startSize, circleWeight, targetWidth, map(lerpedBuffer, 0, 1, -PI, PI));
-    circles.add(circleObject);
-  }
-  
-  void Render()
-  {
+    
     boolean spawnNew = true;
     
     for(int i = 0; i < circles.size(); i++)
@@ -44,7 +47,9 @@ class backGround
       
       if(ap.isPlaying())
       {
-      currentObj.Update(circleSpeed);
+      float currentSpeed = map(lerpedBuffer, 0, 1, circleSpeed, circleSpeed*10);  
+      
+      currentObj.Update(currentSpeed);
       }
       
       if(currentObj.radius < targetWidth)
