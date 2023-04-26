@@ -39,7 +39,7 @@ void setup()
   
   drawBalls(ballAmount);
   
-  bgObject = new backGround(800, 1, 5, 5, 20, songAP, songAB);
+  bgObject = new backGround(800, 1, 2, 5, 20, songAP, songAB);
 }
 
 //ball generator

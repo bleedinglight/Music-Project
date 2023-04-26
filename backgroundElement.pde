@@ -37,7 +37,7 @@ class backgroundElement
     float distanceS = map(radius, furthestRad, width/2.5, 50, 360);
     float distanceB = map(radius, furthestRad, width/2.5, 10, 360);
 
-    strokeWeight(2);
+    strokeWeight(circleWidth);
     for (float i = 0; i < 360; i += theta)
     {
 
