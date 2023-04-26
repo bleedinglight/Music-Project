@@ -16,6 +16,8 @@ playButton test;
 
 ball ball;
 
+background bgObject;
+
 ArrayList<ball> balls = new ArrayList<ball>();
 
 int ballAmount = 1;
@@ -36,6 +38,8 @@ void setup()
   lights();
   
   drawBalls(ballAmount);
+  
+  bgObject.createCircle();
 }
 
 //ball generator
@@ -77,6 +81,8 @@ void draw()
   }
   
   test.render();
+  
+  bgObject.Render();
 }
 
 void mousePressed()
