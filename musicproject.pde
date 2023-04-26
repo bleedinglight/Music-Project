@@ -16,7 +16,7 @@ playButton test;
 
 ball ball;
 
-backGround bgObject = new backGround(20, 1, 5, 5);
+backGround bgObject;
 
 ArrayList<ball> balls = new ArrayList<ball>();
 
@@ -39,7 +39,7 @@ void setup()
   
   drawBalls(ballAmount);
   
-  //bgObject.createCircle();
+  bgObject = new backGround(800, 1, 5, 5, 20, songAP, songAB);
 }
 
 //ball generator

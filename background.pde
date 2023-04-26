@@ -1,22 +1,35 @@
 class backGround
 {
-  float startSize, circleSpeed, circleWidth, circleGap;
+  float startSize, circleSpeed, circleWidth, circleGap, targetWidth, lerpedBuffer;
+  
+  AudioPlayer ap;
+  AudioBuffer ab;
   
   ArrayList<backgroundElement> circles = new ArrayList<backgroundElement>();
   
-  backGround(float startSize, float circleSpeed, float circleWidht, float circleGap)
+  backGround(float startSize, float circleSpeed, float circleWidht, float circleGap, float targetWidth, AudioPlayer ap, AudioBuffer ab)
   {
     this.startSize = startSize;
     this.circleSpeed = circleSpeed;
     this.circleWidth = circleWidth;
     this.circleGap = circleGap;
+    this.targetWidth = targetWidth;
+    this.ap = ap;
+    this.ab = ab;
   }
   
   
   
   void createCircle()
   {
-    backgroundElement circleObject = new backgroundElement(startSize, circleWidth);
+    float total = 0;
+  for (int i = 0; i < ab.size(); i++) {
+     total += abs(ab.get(i));
+  }
+  
+  lerpedBuffer = lerp(lerpedBuffer, total / (float) ab.size(), 0.1f);
+    
+    backgroundElement circleObject = new backgroundElement(startSize, circleWidth, targetWidth, map(lerpedBuffer, 0, 1, -PI, PI));
     circles.add(circleObject);
   }
   
@@ -28,15 +41,19 @@ class backGround
     {
       backgroundElement currentObj = circles.get(i);
       currentObj.Render();
-      currentObj.Update(circleSpeed);
       
-      if(currentObj.radius > width/1.5)
+      if(ap.isPlaying())
+      {
+      currentObj.Update(circleSpeed);
+      }
+      
+      if(currentObj.radius < targetWidth)
       {
         circles.remove(i);
         println("===================================================================== circle deleted");
       }
       
-      if(currentObj.radius < startSize + circleGap)
+      if(currentObj.radius > startSize - circleGap)
       {
         spawnNew = false;
       }
