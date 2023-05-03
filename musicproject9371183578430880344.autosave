@@ -78,7 +78,6 @@ void renderDjBooth()
   }
 }
 
-backGround bgObject;
 ball ball;
 
 ArrayList<ball> balls = new ArrayList<ball>();
@@ -87,20 +86,11 @@ int ballAmount = 1;
 
 void setup()
 {
-  size(1280, 720, P3D);
-  colorMode(HSB, 360);
-  
-  minim = new Minim(this);
-  
   initDjBooth();
   
   lights();
   
   drawBalls(ballAmount);
-
-  
-  bgObject = new backGround(sqrt(pow(width/2, 2) + pow(height/2, 2)) + 10, 1, 2, 5, 20, audioAP.get(0), audioAB.get(0));
-
 }
 
 //ball generator
@@ -124,66 +114,28 @@ void draw()
   
   //awesome lerp gaming
   float total = 0;
-  for(int j = 0; j< 3; j++)
-  {
-    for (int i = 0; i < audioAB.get(j).size(); i++) 
-    {
-         total += abs(audioAB.get(j).get(i));
-    }
+  for (int i = 0; i < audioAB.get(0).size(); i++) {
+     total += abs(audioAB.get(0).get(i));
   }
   
   lerpedBuffer = lerp(lerpedBuffer, total / (float) songAB.size(), 0.1f);
   
   //balls iteration
   for (int i = 0; i < balls.size(); i++) {
-     for(int j =0; j<3; j++)
-     {
      ball ball = balls.get(i);
-     ball.radius = map(lerpedBuffer/map(abs(audioAP.get(j).getGain()), 0, 60, 0.8, 1), 0, 1, 10, 400);
+     ball.radius = map(lerpedBuffer, 0, 1, 10, 400);
      ball.colour = color(map(lerpedBuffer, 0, 1, 260, 320), 255, 255);
      ball.rotationSpeed = map(lerpedBuffer, 0, 1, 0, 0.5);
      
      ball.render();
      ball.update();
-     }
   }
-  bgObject.Render();
-  
-  
-  int gradient = 10;
-  
-  noStroke();
-  for(int i = 0; i<gradient; i++)
-  {
-    for(int j = 0; j<3; j++)
-    {
-      float tot = 0;
-      for(int k = 0; k < audioAB.get(j).size(); k++)
-      {
-        tot += abs(audioAB.get(0).get(k));
-      }
-      
-      float lerp = lerp(abs(audioAP.get(j).getGain()), tot/audioAB.get(j).size(), 0.1f);
-      fill(map(lerp/abs(audioAP.get(j).getGain())*0.1f, 0, 1, 100, 120)- 120/gradient*i);
-    }
-    rect(0, height-100 + 100/gradient*i, width, 100);
-  }
-  
-  renderDjBooth();
 }
 
 void mousePressed()
 {
-  for(int i = 0; i < 3; i ++)
-  {
-    buttons.get(i).click();
-  }
 }
 
 void mouseDragged()
 {
-  for(int i = 0; i < 3; i ++)
-  {
-    volume.get(i).volumeDrag();
-  }
 }

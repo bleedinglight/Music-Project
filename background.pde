@@ -47,7 +47,7 @@ class backGround
       
       if(ap.isPlaying())
       {
-      float currentSpeed = map(lerpedBuffer, 0, 1, circleSpeed, circleSpeed*10);  
+      float currentSpeed = map(lerpedBuffer, 0, 1, circleSpeed, circleSpeed*10)-map(abs(ap.getGain()), 0, 60, 0, 2);  
       
       currentObj.Update(currentSpeed);
       }
