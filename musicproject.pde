@@ -12,7 +12,20 @@ Minim mainSong;
 AudioPlayer songAP;
 AudioBuffer songAB;
 
-playButton test;
+//Setting up SFX
+ArrayList<Minim> sfxList = new ArrayList<Minim>();
+ArrayList<AudioPlayer> sfxAP = new ArrayList<AudioPlayer>();
+ArrayList<AudioBuffer> sfxAB = new ArrayList<AudioBuffer>();
+
+int sfxNum = 4;
+
+void initSfx()
+{
+}
+
+
+button test;
+volumeCtrl vtest;
 
 ball ball;
 
@@ -31,7 +44,8 @@ void setup()
   
   songAB = songAP.mix;
   
-  test = new playButton(0+100, height-50, songAP);
+  test = new button(0+100, height-50, songAP, "Play Button");
+  vtest = new volumeCtrl(width/2, height-10, songAP, "Song Volume");
   
   lights();
   
@@ -77,6 +91,8 @@ void draw()
   }
   
   test.render();
+  vtest.render();
+  vtest.update();
 }
 
 void mousePressed()
