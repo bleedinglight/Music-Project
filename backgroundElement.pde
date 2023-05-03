@@ -28,7 +28,7 @@ class backgroundElement
 
     
 
-    float theta = 0.7f;
+    float theta = 3f;
 
     //float cGap = 100.0f / 360.0f ;
 
