@@ -12,10 +12,9 @@ class button
   boolean pause;
   boolean overButton;
   boolean pressed;
-  boolean sfx;
   String buttonName;
   
-  button(float xPos, float yPos, AudioPlayer songPlayer, String name, boolean type)
+  button(float xPos, float yPos, AudioPlayer songPlayer, String name)
   {
     ap = songPlayer;
     x = xPos;
@@ -24,8 +23,6 @@ class button
     bRad = 50;
     pause = true;
     buttonName = name;
-    
-    sfx = type;
   }
   
   void render()
@@ -69,14 +66,9 @@ class button
   
   public void click()
   { 
-    if(overButton == true)
+    if(overButton)
     {
       pause = !pause;
-    }
-    
-    if(sfx == true)
-    {
-      ap.rewind();
     }
   }
   
