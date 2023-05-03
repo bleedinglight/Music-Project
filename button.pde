@@ -1,7 +1,7 @@
 //Creating a Play Button Class
 //Will make a button that will be able to pause and play a song
 
-class playButton
+class button
 {
   float x;
   float y;
@@ -12,8 +12,10 @@ class playButton
   boolean pause;
   boolean overButton;
   boolean pressed;
+  boolean sfx;
+  String buttonName;
   
-  playButton(float xPos, float yPos, AudioPlayer songPlayer)
+  button(float xPos, float yPos, AudioPlayer songPlayer, String name, boolean type)
   {
     ap = songPlayer;
     x = xPos;
@@ -21,6 +23,9 @@ class playButton
     
     bRad = 50;
     pause = true;
+    buttonName = name;
+    
+    sfx = type;
   }
   
   void render()
@@ -37,26 +42,41 @@ class playButton
     
     if(!pause)
     {
-      fill(0, 255 - bSatur, 255);
       ap.play();
     }else
     {
       fill(255-bSatur);
       ap.pause();
     }
+    
+    if(ap.isPlaying())
+    {
+      fill(0, 255 - bSatur, 255);
+    }
+    
     noStroke();
     circle(x, y, bRad);
     
     println(overButton);
     println(pause);
     println(pressed);
+    
+    
+    textSize(18);
+    fill(360);
+    text(buttonName, x-bRad/2-9, y-bRad/2-3);
   }
   
   public void click()
   { 
-    if(overButton)
+    if(overButton == true)
     {
       pause = !pause;
+    }
+    
+    if(sfx == true)
+    {
+      ap.rewind();
     }
   }
   
