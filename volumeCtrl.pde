@@ -11,12 +11,12 @@ class volumeCtrl
   float slidY;
   float slidColor;
   
-  float barMax = slidY-80;
-  float barMin = slidY;
+  float barMax;
   float barPos;
   boolean overBar;
   
   float barValue;
+  float gainValue;
   
   String ctrlName;
   
@@ -28,10 +28,8 @@ class volumeCtrl
     slidY = ypos;
     ap = audio;
     ctrlName = name;
-    barMax = slidY-80;
-    barPos = slidY-40;
-    
-    barValue = (slidY-barPos)/80;
+    barMax = ypos-80;
+    barPos = ypos-60;
   }
   
   void render()
@@ -57,6 +55,7 @@ class volumeCtrl
     
     println(barValue);
     println(overBar);
+    println(ap.getGain());
   }
   
   void mouseOver()
@@ -69,10 +68,32 @@ class volumeCtrl
     }
   }
   
+  void volumeDrag()
+  {
+    if(overBar == true && barPos >= barMax && barPos <= slidY)
+    {
+      barPos = mouseY;
+      
+      if(barPos <= barMax-1)
+      {
+        barPos = barMax;
+      }
+      
+      if(barPos >= slidY+1)
+      {
+        barPos = slidY;
+      }
+    }
+  }
+  
   void update()
   {
     mouseOver();
     
-    ap.setVolume(barValue);
+    barValue = (slidY-barPos)/80;
+    
+    gainValue = map(barValue, 0, 1, -40, 6);
+    
+    ap.setGain(gainValue);
   }
 }
