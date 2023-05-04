@@ -87,7 +87,8 @@ int ballAmount = 1;
 
 void setup()
 {
-  size(1280, 720, P3D);
+  //size(1280, 720, P3D);
+  fullScreen(P3D);
   colorMode(HSB, 360);
   
   minim = new Minim(this);
@@ -99,7 +100,7 @@ void setup()
   drawBalls(ballAmount);
 
   
-  bgObject = new backGround(sqrt(pow(width/2, 2) + pow(height/2, 2)) + 10, 1, 2, 5, 20, audioAP.get(0), audioAB.get(0));
+  bgObject = new backGround(sqrt(pow(width/2, 2) + pow(height/2, 2)) + 10, 1, 4, 5, 20, audioAP.get(0), audioAB.get(0));
 
 }
 
@@ -139,7 +140,7 @@ void draw()
      for(int j =0; j<3; j++)
      {
      ball ball = balls.get(i);
-     ball.radius = map(lerpedBuffer/map(abs(audioAP.get(j).getGain()), 0, 60, 0.8, 1), 0, 1, 10, 400);
+     ball.radius = map(lerpedBuffer/map(abs(audioAP.get(j).getGain()), 0, 60, 0.8, 5), 0, 1, 10, 400);
      ball.colour = color(map(lerpedBuffer, 0, 1, 260, 320), 255, 255);
      ball.rotationSpeed = map(lerpedBuffer, 0, 1, 0, 0.5);
      

@@ -19,6 +19,7 @@ class ball {
   
   void render() {
     
+    strokeWeight(1);
     stroke(colour);
     noFill();
     pushMatrix();
