@@ -15,20 +15,28 @@ Indiviudal elements of the visualizer are as follows:
 
 *Pretty cvnt* by the australian music producer *Sewerslvt* is the song used in this project. We chose this song for it's high energetic tempo and as it is from a genre of music called Breakcore which is closely related to Drum and Bass a genre popular in clubs, these facts further enhance the feeling we were aiming for.
 
+###Showcase video [here](https://youtu.be/Od_UB0CNuQc)
+
+[![Image of the visualizer](img/main.png)](https://youtu.be/Od_UB0CNuQc)
+
 ## Instructions for use
 
 When starting the project you will see a dark screen which a gray bar at the bottom this is the DJ table.
 You have 3 buttons to choose from:
 
-- The Play/Button button - Starts and stops the music and with it the visualizer
+- The Song button - Starts and stops the music and with it the visualizer
 - SFX 1 Button - Plays an airhorn sound effect 
 - SFX 2 Button - Plays an record scratch sound effect
+
+![Image of the buttons](img/buttons.png)
 
 Left of the button controls you will see volume sliders which will change the volume of parts of the audio. They change the volume of the tracks as follows:
 
 - Volume of the music
 - Volume of the airhorn
 - Volume of the record scratch
+
+![Image of the sliders](img/sliders.png)
 
 The volume sliders also influence the base size of their sphere objects. 
 
@@ -45,8 +53,3 @@ The volume sliders also influence the base size of their sphere objects.
 | Sewerslvt - Pretty Cvnt.mp3 | [Source](https://www.youtube.com/watch?v=beoNy4MMHTc) | The main song |
 | Airhorn.mp3 | [Source](https://www.youtube.com/watch?v=3ABi1zfK4qc&ab_channel=ItzChristy) | Airhorn SFX |
 | Scratch1.mp3 | [Source](https://www.youtube.com/watch?v=3Lra0087Rac&ab_channel=CoolSoundFX) | Record scratch SFX |
-
-
-
-
-
