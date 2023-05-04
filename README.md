@@ -13,9 +13,9 @@ Indiviudal elements of the visualizer are as follows:
 - Background which draws dots which react to the music by speeding up and shifting their colors.
 - 3D mesh spheres as the main visual indicators of sound which showcase each individual audio track (music and the two respective sfx channels).
 
-*Pretty cvnt* by the australian music producer *Sewerslvt* is the song used in this project. We chose this song for it's high energetic tempo and as it is from a genre of music called Breakcore which is closely related to Drum and Bass a genre popular in clubs, these facts further enhance the feeling we were aiming for.
+*Pretty cvnt* by the australian music producer *Sewerslvt* is the song used in this project. We chose this song for it's high energetic tempo and as it is from a genre of music called Breakcore which is closely related to Drum and Bass a genre popular in clubs, these elements further enhance the feeling we were aiming for.
 
-###Showcase video [here](https://youtu.be/Od_UB0CNuQc)
+**Showcase video [here](https://youtu.be/Od_UB0CNuQc)**
 
 [![Image of the visualizer](img/main.png)](https://youtu.be/Od_UB0CNuQc)
 
